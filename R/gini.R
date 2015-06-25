@@ -1,5 +1,4 @@
 
-
 #' Creating data to test the Gini-function
 #' @return A data.frame with test data for the function huvud that calculates gini
 #' @export 
