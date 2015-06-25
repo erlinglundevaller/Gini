@@ -4,6 +4,7 @@
 #' @export 
 #' @details Just for testing! 
 testdata <- function(){ 
+  set.seed(56)
   pid <- rep(1:10, each=2)## test
   ar <- rep(c(1:2), 10)
   region <- c(3,3,3,1,1,1,2,2,2,2,3,3,3,1,1,1,2,2,2,2)
@@ -27,9 +28,9 @@ huvud <- function(data = data){ ## gini<-huvud(data)
   names(reg.gini) <- c("region", "gini", "mean", "quart1", "median", "quart3","no.cases")
    for(i in 1:length(reg.gini$region)){
     income <- data$income[data$region == reg.gini$region[i]]
-    kumul.v <- kumul(vec=income)
+    kumul.v <- kumul(vec=income) - income/2  ## income/2 for continuity
     income.mean <- rep(mean(income), length(income))
-    kumul.mean <- kumul(vec=income.mean)
+    kumul.mean <- kumul(vec=income.mean) - income.mean/2  ## income.mean/2 for continuity 
     reg.gini$gini[i] <- 1-sum(kumul.v)/sum(kumul.mean)
     reg.gini$mean[i] <- mean(income)
     reg.gini[i, c("quart1", "median", "quart3")] <- quantile(income, c(0.25, 0.5, 0.75) ) 
@@ -39,11 +40,12 @@ huvud <- function(data = data){ ## gini<-huvud(data)
   reg.gini
 }
 
+
 #' kumul function
 #' This function makes a cumulative vector
 #' @author Erling Haggstrom Lundevaller
-#' @export 
 #' @param vec a sorted vector with incomes
+#' @export
 #' @return kum.vec A cumulative vector of the same length as the input vec
 #' @details Makes a cumulative vector
 kumul <- function(vec){ 
@@ -54,6 +56,5 @@ kumul <- function(vec){
   }
   kum.vec
 }
-
 
 
