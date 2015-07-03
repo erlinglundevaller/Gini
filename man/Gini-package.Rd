@@ -12,8 +12,8 @@ Calculates Gini coefficients for regions
 \tabular{ll}{
 Package: \tab Gini\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2015-06-24\cr
+Version: \tab 1.2\cr
+Date: \tab 2015-06-25\cr
 License: \tab GLP-3\cr
 }
 Functions: huvud, kumul & testdata

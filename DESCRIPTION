@@ -1,9 +1,10 @@
 Package: Gini
 Type: Package
 Title: Calculating the Gini coefficient
-Version: 1.1
-Date: 2015-06-24
+Version: 1.2.1
+Date: 2015-07-03
 Author: Erling Haggstrom Lundevaller
 Maintainer: Erling Haggstrom Lundevaller <erling.lundevaller@gmail.com>
 Description: Calculating the Gini coefficient from income data in a population.
 License: GPL-3
+Suggests: testthat
